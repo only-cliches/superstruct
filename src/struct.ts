@@ -11,6 +11,7 @@ export class Struct<T = unknown, S = unknown> {
   readonly TYPE!: T
   type: string
   schema: S
+  comment?: string
   extend?: any
   coercer: (value: unknown, context: Context) => unknown
   validator: (value: unknown, context: Context) => Iterable<Failure>

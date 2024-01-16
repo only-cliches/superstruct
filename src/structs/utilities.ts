@@ -2,6 +2,15 @@ import { Context, Struct, Validator } from '../struct'
 import { Assign, ObjectSchema, ObjectType, PartialObjectSchema } from '../utils'
 import { object, optional, type } from './types'
 
+
+/**
+ * Add optional comment to specific type
+ */
+export function withComment<T extends Struct>(struct: T, comment: string): T {
+  struct.comment = comment;
+  return struct;
+}
+
 /**
  * Create a new struct that combines the properties properties from multiple
  * object or type structs. Its return type will match the first parameter's type.
