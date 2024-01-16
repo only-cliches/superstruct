@@ -11,6 +11,8 @@ export class Struct<T = unknown, S = unknown> {
   readonly TYPE!: T
   type: string
   schema: S
+  comment?: string
+  extend?: any
   coercer: (value: unknown, context: Context) => unknown
   validator: (value: unknown, context: Context) => Iterable<Failure>
   refiner: (value: T, context: Context) => Iterable<Failure>
@@ -22,6 +24,7 @@ export class Struct<T = unknown, S = unknown> {
   constructor(props: {
     type: string
     schema: S
+    extend?: any
     coercer?: Coercer
     validator?: Validator
     refiner?: Refiner<T>
@@ -31,12 +34,14 @@ export class Struct<T = unknown, S = unknown> {
       type,
       schema,
       validator,
+      extend,
       refiner,
       coercer = (value: unknown) => value,
       entries = function* () {},
     } = props
 
     this.type = type
+    this.extend = extend
     this.schema = schema
     this.entries = entries
     this.coercer = coercer
