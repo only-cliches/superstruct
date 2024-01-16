@@ -6,7 +6,7 @@ import { object, optional, type } from './types'
 /**
  * Add optional comment to specific type
  */
-export function withComment<T extends Struct<any, any>>(struct: T, comment: string): T {
+export function withComment<T extends Struct<any, any>>(comment: string, struct: T): T {
   struct.comment = comment;
   return struct;
 }

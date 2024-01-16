@@ -311,7 +311,7 @@ function validate(value, struct, options = {}) {
 /**
  * Add optional comment to specific type
  */
-function withComment(struct, comment) {
+function withComment(comment, struct) {
     struct.comment = comment;
     return struct;
 }
