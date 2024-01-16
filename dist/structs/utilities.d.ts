@@ -3,7 +3,7 @@ import { Assign, ObjectSchema, ObjectType, PartialObjectSchema } from '../utils'
 /**
  * Add optional comment to specific type
  */
-export declare function withComment<T extends Struct>(struct: T, comment: string): T;
+export declare function withComment<T extends Struct<any, any>>(struct: T, comment: string): T;
 /**
  * Create a new struct that combines the properties properties from multiple
  * object or type structs. Its return type will match the first parameter's type.
